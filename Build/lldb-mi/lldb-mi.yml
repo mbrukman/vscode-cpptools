@@ -86,7 +86,7 @@ jobs:
         # Create a separate build directory for building lldb-mi.
         log_and_exec_cmd "mkdir build"
         log_and_exec_cmd "cd build"
-        log_and_exec_cmd "cmake -DCMAKE_PREFIX_PATH=$(Build.StagingDirectory)/buildspace/llvm-inst/ $(lldb_mi_additional_parameters) -GNinja .."
+        log_and_exec_cmd "cmake -DCMAKE_PREFIX_PATH=$(Build.StagingDirectory)/buildspace/llvm-inst/ -DCMAKE_BUILD_TYPE=Debug $(lldb_mi_additional_parameters) -GNinja .."
         log_and_exec_cmd "ninja"
         if [[ $? -ne 0 ]]
         then
